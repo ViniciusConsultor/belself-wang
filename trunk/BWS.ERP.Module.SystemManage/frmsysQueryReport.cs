@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Linq;
 using DevExpress.XtraCharts;
+using BWS.ERP.BaseControl;
 
 namespace BWS.ERP.Module.SystemManage
 {
@@ -91,10 +92,10 @@ namespace BWS.ERP.Module.SystemManage
                     int iControlSpace = Convert.ToInt32(dtMain.Rows[0]["iControlSpace"]);
                     //先计算需要生成查询的数据
                     DataRow[] dr = dtDetail.Select("bIsQuery=1");
+                    //计算控件总共行数
+                    int iRows = 0;
                     if (dr.Length > 0)
                     {
-                        //计算控件总共行数
-                        int iRows = 0;
                         if (dr.Length % iControlColumn != 0)
                         {
                             iRows = (int)Math.Floor(Convert.ToDecimal(dr.Length / iControlColumn)) + 1;
@@ -152,7 +153,7 @@ namespace BWS.ERP.Module.SystemManage
                                 Label lbl = new Label();
                                 lbl.AutoSize = false;
                                 lbl.Size = new Size(80, 21);
-                                lbl.Location = new Point(10 + (80 + 120 + iControlSpace) * i, 20 + (21 + 10) * j);
+                                lbl.Location = new Point(10 + (80 + 120 + iControlSpace) * i, 25 + (21 + 10) * j);
                                 //控件命名规则：lbl+字段名+数据行号
                                 lbl.Name = "lbl" + dr[iControl]["sColumnFieldName"].ToString() + iControl.ToString();
                                 lbl.TextAlign = ContentAlignment.BottomLeft;
@@ -172,7 +173,7 @@ namespace BWS.ERP.Module.SystemManage
                                             DevExpress.XtraEditors.TextEdit txt = new DevExpress.XtraEditors.TextEdit();
                                             txt.Size = new Size(120, 21);
                                             txt.Name = "txt" + dr[iControl]["sColumnFieldName"].ToString() + iControl.ToString();
-                                            txt.Location = new Point(10 + (80 + 120 + iControlSpace) * i + 80, 20 + (21 + 10) * j);
+                                            txt.Location = new Point(10 + (80 + 120 + iControlSpace) * i + 80, 28 + (21 + 10) * j);
                                             txt.Text = oColumnDefaultValue.ToString();
                                             //用Tag来存储查询类型
                                             txt.Tag = dr[iControl]["sColumnFieldName"].ToString() + " " + dr[iControl]["sSearchType"].ToString();
@@ -185,7 +186,7 @@ namespace BWS.ERP.Module.SystemManage
                                             DevExpress.XtraEditors.ComboBoxEdit cbx = new DevExpress.XtraEditors.ComboBoxEdit();
                                             cbx.Size = new Size(120, 21);
                                             cbx.Name = "cbx" + dr[iControl]["sColumnFieldName"].ToString() + iControl.ToString();
-                                            cbx.Location = new Point(10 + (80 + 120 + iControlSpace) * i + 80, 20 + (21 + 10) * j);
+                                            cbx.Location = new Point(10 + (80 + 120 + iControlSpace) * i + 80, 28 + (21 + 10) * j);
                                             cbx.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
                                             //写入ComboBox选择值
                                             foreach (var item in dr[iControl]["sReturnValue"].ToString().Replace("，", ",").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries))
@@ -216,7 +217,7 @@ namespace BWS.ERP.Module.SystemManage
                                             DevExpress.XtraEditors.DateEdit det = new DevExpress.XtraEditors.DateEdit();
                                             det.Size = new Size(120, 21);
                                             det.Name = "det" + dr[iControl]["sColumnFieldName"].ToString() + iControl.ToString();
-                                            det.Location = new Point(10 + (80 + 120 + iControlSpace) * i + 80, 20 + (21 + 10) * j);
+                                            det.Location = new Point(10 + (80 + 120 + iControlSpace) * i + 80, 28 + (21 + 10) * j);
                                             det.Tag = dr[iControl]["sColumnFieldName"].ToString() + " " + dr[iControl]["sSearchType"].ToString();
                                             if (oColumnDefaultValue.ToString() != "")
                                             {
@@ -235,7 +236,7 @@ namespace BWS.ERP.Module.SystemManage
                                             DevExpress.XtraEditors.CheckEdit chk = new DevExpress.XtraEditors.CheckEdit();
                                             chk.Size = new Size(120, 21);
                                             chk.Name = "chk" + dr[iControl]["sColumnFieldName"].ToString() + iControl.ToString();
-                                            chk.Location = new Point(10 + (80 + 120 + iControlSpace) * i + 80, 20 + (21 + 10) * j);
+                                            chk.Location = new Point(10 + (80 + 120 + iControlSpace) * i + 80, 28 + (21 + 10) * j);
                                             //CheckBox过滤条件特殊处理
                                             string sReturnValue = "";
                                             if (dr[iControl]["sSearchType"].ToString().Contains("LIKE"))
@@ -272,33 +273,35 @@ namespace BWS.ERP.Module.SystemManage
 
                             }
                         }
-                        //分组条件控件设置
-                        grbGroup.Visible = IsGroup;
-                        //grbGroup.Location = new Point(10, iRows * 31 + toolStrip1.Height);
-                        grbGroup.Location = new Point(10, iRows * 31 );
-                        grbGroup.Controls.Clear();
-                        for (int i = 0; i < dtDetail.Select("bIsGroup=1").Length; i++)
-                        {
-                            DevExpress.XtraEditors.CheckEdit chk = new DevExpress.XtraEditors.CheckEdit();
-                            chk.Size = new Size(80, 21);
-                            chk.Location = new Point(5 + (80 + 5) * i, 15);
-                            chk.Name = "chkGrp" + dtDetail.Select("bIsGroup=1")[i]["sColumnFieldName"].ToString() + i.ToString();
-                            chk.Text = dtDetail.Select("bIsGroup=1")[i]["sColumnCaption"].ToString();
-                            chk.Tag = dtDetail.Select("bIsGroup=1")[i]["sColumnFieldName"].ToString();
-                            chk.Checked = true;
-                            grbGroup.Controls.Add(chk);
-                        }
-                        grbGroup.Width = dtDetail.Select("bIsGroup=1").Length * 85 + 10;
-
-
-                        //设置查询条件面板高度
-                        grbFilter.Height = iRows * 31 + 40 + (IsGroup == true ? grbGroup.Height : 0);
+                        
                     }
+                    //分组条件控件设置
+                    grbGroup.Visible = IsGroup;
+                    //grbGroup.Location = new Point(10, iRows * 31 + toolStrip1.Height);
+                    grbGroup.Location = new Point(10, iRows * 31 + 30);
+                    grbGroup.Controls.Clear();
+                    for (int i = 0; i < dtDetail.Select("bIsGroup=1").Length; i++)
+                    {
+                        DevExpress.XtraEditors.CheckEdit chk = new DevExpress.XtraEditors.CheckEdit();
+                        chk.Size = new Size(80, 21);
+                        chk.Location = new Point(5 + (80 + 5) * i, 25);
+                        chk.Name = "chkGrp" + dtDetail.Select("bIsGroup=1")[i]["sColumnFieldName"].ToString() + i.ToString();
+                        chk.Text = dtDetail.Select("bIsGroup=1")[i]["sColumnCaption"].ToString();
+                        chk.Tag = dtDetail.Select("bIsGroup=1")[i]["sColumnFieldName"].ToString();
+                        chk.Checked = true;
+                        grbGroup.Controls.Add(chk);
+                    }
+                    grbGroup.Height = 45;
+                    grbGroup.Width = dtDetail.Select("bIsGroup=1").Length * 85 + 10;
+
+
+                    //设置查询条件面板高度
+                    grbFilter.Height = iRows * 31 + 55 + (IsGroup == true ? grbGroup.Height : 0);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("创建查询条件控件错误！" + ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Public.SystemInfo("创建查询条件控件错误！" + ex.Message, true);
             }
         }
 
@@ -312,7 +315,7 @@ namespace BWS.ERP.Module.SystemManage
             {
                 if (ReportNo != "")
                 {
-                    string sSql = "SELECT * FROM sysQueryReportMaster WHERE ReportNo='" + ReportNo + "'";
+                    string sSql = "SELECT * FROM sysQueryReportMaster WHERE sReportNo='" + ReportNo + "'";
                     dtMain = BWS.ERP.DataAccess.DbHelperSQL.Query(sSql).Tables[0];
                     if (dtMain.Rows.Count > 0)
                     {
@@ -342,7 +345,7 @@ namespace BWS.ERP.Module.SystemManage
                         }
 
 
-                        sSql = "SELECT * FROM sysQueryReportDetail WHERE MainID=" + dtMain.Rows[0]["ID"].ToString() + " ORDER BY Sort";
+                        sSql = "SELECT * FROM sysQueryReportDetail WHERE MainID=" + dtMain.Rows[0]["ID"].ToString() + " ORDER BY iSort";
                         dtDetail = BWS.ERP.DataAccess.DbHelperSQL.Query(sSql).Tables[0];
                         //检测是否含有分组情况
                         if (dtDetail != null)
@@ -354,7 +357,8 @@ namespace BWS.ERP.Module.SystemManage
             }
             catch (Exception ex)
             {
-                MessageBox.Show("初始化数据错误！" + ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Public.SystemInfo("初始化数据错误！" + ex.Message, true);
+                
             }
         }
 
@@ -380,28 +384,29 @@ namespace BWS.ERP.Module.SystemManage
                     {
                         sDisGroupField = "(" + sDisGroupField.Substring(0, sDisGroupField.Length - 1) + ")";
                         //将统计字段也加入Grid列中
-                        LDataRows = dtDetail.Select("bIsShow=1 AND bIsGroup=1 AND ColumnFieldName IN " + sDisGroupField).Union(dtDetail.Select("bIsStat=1")).ToList();
+                        LDataRows = dtDetail.Select("bIsShow=1 AND bIsGroup=1 AND sColumnFieldName IN " + sDisGroupField).Union(dtDetail.Select("bIsStat=1")).ToList();
                     }
                     else
                     {
-                        throw new Exception("必须至少选择一列分组字段!");
+                        Public.SystemInfo("必须至少选择一列分组字段!");
+                        return;
                     }
 
                 }
                 foreach (DataRow dr in LDataRows)
                 {
                     DevExpress.XtraGrid.Columns.GridColumn col = new DevExpress.XtraGrid.Columns.GridColumn();
-                    col.FieldName = dr["ColumnFieldName"].ToString();
-                    col.Caption = dr["ColumnCaption"].ToString();
-                    col.Name = "col" + dr["ColumnFieldName"].ToString() + i.ToString();
+                    col.FieldName = dr["sColumnFieldName"].ToString();
+                    col.Caption = dr["sColumnCaption"].ToString();
+                    col.Name = "col" + dr["sColumnFieldName"].ToString() + i.ToString();
                     col.Width = 100;
                     col.Visible = true;
                     col.VisibleIndex = i;
-                    if (dr["ColumnType"].ToString() == "K")
+                    if (dr["sColumnType"].ToString() == "K")
                     {
                         DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit colItem = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
                         colItem.AutoHeight = false;
-                        colItem.Name = "repositoryItem" + dr["ColumnFieldName"].ToString() + i.ToString();
+                        colItem.Name = "repositoryItem" + dr["sColumnFieldName"].ToString() + i.ToString();
                         colItem.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
                         col.ColumnEdit = colItem;
                         gcSearch.RepositoryItems.Add(colItem);
@@ -409,18 +414,18 @@ namespace BWS.ERP.Module.SystemManage
                     //先计算有没有合计的，再计算计数
                     if (dr["bIsSum"].ToString() != "" && Convert.ToBoolean(dr["bIsSum"]))
                     {
-                        col.SummaryItem.FieldName = dr["ColumnFieldName"].ToString();
+                        col.SummaryItem.FieldName = dr["sColumnFieldName"].ToString();
                         col.SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
                         //显示分组脚注后也要合计
-                        gvSearch.GroupSummary.Add(DevExpress.Data.SummaryItemType.Sum, dr["ColumnFieldName"].ToString(), col);
+                        gvSearch.GroupSummary.Add(DevExpress.Data.SummaryItemType.Sum, dr["sColumnFieldName"].ToString(), col);
 
 
                     }
                     if (dr["bIsCount"].ToString() != "" && Convert.ToBoolean(dr["bIsCount"]))
                     {
-                        col.SummaryItem.FieldName = dr["ColumnFieldName"].ToString();
+                        col.SummaryItem.FieldName = dr["sColumnFieldName"].ToString();
                         col.SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count;
-                        gvSearch.GroupSummary.Add(DevExpress.Data.SummaryItemType.Count, dr["ColumnFieldName"].ToString(), col);
+                        gvSearch.GroupSummary.Add(DevExpress.Data.SummaryItemType.Count, dr["sColumnFieldName"].ToString(), col);
                     }
                     gvSearch.Columns.Add(col);
                     i++;
@@ -430,7 +435,7 @@ namespace BWS.ERP.Module.SystemManage
                 if (IsChart)
                 {
                     //数据值
-                    cbxChartType.SelectedIndex = 0;
+                    cbxValueType.Properties.Items.Clear();
                     DataTable dtTemp = dtDetail.Clone();
                     foreach (DataRow item in dtDetail.Select("bChartValue"))
                     {
@@ -440,12 +445,14 @@ namespace BWS.ERP.Module.SystemManage
                         //dtTemp.Rows.Add(dr);
                         cbxValueType.Properties.Items.Add(new DevExpress.XtraEditors.Controls.ImageComboBoxItem(item["sColumnCaption"].ToString(), item["sColumnFieldName"]));
                     }
+                    cbxValueType.SelectedIndex = 0;
                     //cbxValueType.DataSource = dtTemp;
                     //cbxValueType.ValueMember = "sColumnFieldName";
                     //cbxValueType.DisplayMember = "sColumnCaption";
 
 
                     //比较值
+                    cbxField.Properties.Items.Clear();
                     DataTable dtField = dtDetail.Clone();
                     foreach (DataRow item in dtDetail.Select("bChartField"))
                     {
@@ -455,6 +462,7 @@ namespace BWS.ERP.Module.SystemManage
                         //dtField.Rows.Add(dr);
                         cbxField.Properties.Items.Add(new DevExpress.XtraEditors.Controls.ImageComboBoxItem(item["sColumnCaption"].ToString(), item["sColumnFieldName"]));
                     }
+                    cbxField.SelectedIndex = 0;
                     //cbxField.DataSource = dtField;
                     //cbxField.ValueMember = "sColumnFieldName";
                     //cbxField.DisplayMember = "sColumnCaption";
@@ -462,9 +470,10 @@ namespace BWS.ERP.Module.SystemManage
             }
             catch (Exception ex)
             {
-                MessageBox.Show("创建查询Grid列错误！" + ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Public.SystemInfo("创建查询Grid列错误！" + ex.Message, true);
             }
         }
+
 
 
         /// <summary>
@@ -485,7 +494,8 @@ namespace BWS.ERP.Module.SystemManage
                     }
                     else
                     {
-                        throw new Exception("必须至少选择一列分组字段!");
+                        Public.SystemInfo("必须至少选择一列分组字段!");
+                        return;
                     }
 
 
@@ -499,15 +509,20 @@ namespace BWS.ERP.Module.SystemManage
             }
             catch (Exception ex)
             {
-                MessageBox.Show("创建查询Grid数据错误！" + ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Public.SystemInfo("创建查询Grid数据错误！" + ex.Message, true);
             }
         }
 
 
-        private void tsbView_Click(object sender, EventArgs e)
+        private void btnView_Click(object sender, EventArgs e)
         {
             if (IsGroup)
             {
+                if (GetGroupFields() == "")
+                {
+                    Public.SystemInfo("如果存在分组统计查询，则必须至少选择一列分组字段！");
+                    return;
+                }
                 CreateGridColumn();
             }
             InitGridData("1=1 " + GetSearchFilterSQL());
@@ -518,7 +533,7 @@ namespace BWS.ERP.Module.SystemManage
         }
 
 
-        private void tsbClear_Click(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
             try
             {
@@ -551,12 +566,12 @@ namespace BWS.ERP.Module.SystemManage
             }
             catch (Exception ex)
             {
-                MessageBox.Show("清除过滤条件错误！" + ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Public.SystemInfo("清除过滤条件错误！" + ex.Message, true);
             }
         }
 
 
-        private void tsbPrint_Click(object sender, EventArgs e)
+        private void btnPrint_Click(object sender, EventArgs e)
         {
             try
             {
@@ -568,17 +583,17 @@ namespace BWS.ERP.Module.SystemManage
                 }
                 else
                 {
-                    MessageBox.Show("请先查询出数据后再打印！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Public.SystemInfo("请先查询出数据后再打印！");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("打印错误，请关闭窗口重试！" + ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Public.SystemInfo("打印错误，请关闭窗口重试！" + ex.Message, true);
             }
         }
 
 
-        private void tsbSet_Click(object sender, EventArgs e)
+        private void btnSet_Click(object sender, EventArgs e)
         {
             try
             {
@@ -586,7 +601,7 @@ namespace BWS.ERP.Module.SystemManage
                 {
                     if (gvSearch.FocusedRowHandle >= 0 && sExecSQL != "")
                     {
-                        if (MessageBox.Show("确认执行？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (Public.SystemInfo("确认执行？",4) == DialogResult.Yes)
                         {
                             //解析执行SQL
                             foreach (DataColumn item in dtSearch.Columns)
@@ -606,24 +621,24 @@ namespace BWS.ERP.Module.SystemManage
                                 }
                             }
                             BWS.ERP.DataAccess.DbHelperSQL.ExecuteSql(sExecSQL);
-                            MessageBox.Show("执行成功，请重新查询数据！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Public.SystemInfo("执行成功，请重新查询数据！");
                             sExecSQL = dtMain.Rows[0]["sExecSQL"].ToString();
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("请先查询出数据后再执行！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Public.SystemInfo("请先查询出数据后再执行！");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("执行错误，请关闭窗口重试！" + ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Public.SystemInfo("执行错误，请关闭窗口重试！" + ex.Message,true);
             }
         }
 
 
-        private void tsbClose_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -683,7 +698,7 @@ namespace BWS.ERP.Module.SystemManage
             }
             catch (Exception ex)
             {
-                MessageBox.Show("生成过滤条件错误！" + ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Public.SystemInfo("生成过滤条件错误！" + ex.Message, true);
                 return "1=2";
             }
         }
@@ -725,21 +740,6 @@ namespace BWS.ERP.Module.SystemManage
             }
         }
 
-
-        private void tbDetail_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (tbDetail.SelectedTabPageIndex == 1)
-                {
-                    ShowChart();
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
         /// <summary>
         /// 显示图表
         /// </summary>
@@ -747,7 +747,7 @@ namespace BWS.ERP.Module.SystemManage
         {
             try
             {
-                switch (cbxChartType.SelectedItem.ToString())
+                switch (cbxChartType.EditValue.ToString())
                 {
                     case "柱图":
                         {
@@ -778,7 +778,7 @@ namespace BWS.ERP.Module.SystemManage
         /// </summary>
         private void ShowBar()
         {
-            if (cbxValueType.SelectedText != null && cbxValueType.SelectedText != "")
+            if (cbxValueType.Text != null && cbxValueType.Text != "")
             {
                 if (dtSearch != null && dtSearch.Rows.Count > 0)
                 {
@@ -788,10 +788,10 @@ namespace BWS.ERP.Module.SystemManage
                     //ChartTitle title = new ChartTitle();
                     //title.Text = dtMain.Rows[0]["ReportName"].ToString();
                     //chtMain.Titles.Add(title);
-                    foreach (DataRow item in dtDetail.Select("bChartValue"))
+                    foreach (DataRow item in dtDetail.Select("bChartValue AND sColumnFieldName='" + cbxValueType.EditValue.ToString()+"'"))
                     {
                         Series series = new Series(item["sColumnCaption"].ToString(), ViewType.Bar);
-                        series.ArgumentDataMember = cbxField.SelectedText;
+                        series.ArgumentDataMember = cbxField.EditValue.ToString();
                         series.ValueDataMembers[0] = item["sColumnFieldName"].ToString();
                         chtMain.Series.Add(series);
                     }
@@ -808,7 +808,7 @@ namespace BWS.ERP.Module.SystemManage
         /// </summary>
         private void ShowPie()
         {
-            if (cbxValueType.SelectedText != null && cbxValueType.SelectedText != "")
+            if (cbxValueType.Text != null && cbxValueType.Text != "")
             {
                 if (dtSearch != null && dtSearch.Rows.Count > 0)
                 {
@@ -818,12 +818,12 @@ namespace BWS.ERP.Module.SystemManage
                     //ChartTitle title = new ChartTitle();
                     //title.Text = dtMain.Rows[0]["ReportName"].ToString();
                     //chtMain.Titles.Add(title);
-                    foreach (DataRow item in dtDetail.Select("bChartValue"))
+                    foreach (DataRow item in dtDetail.Select("bChartValue AND sColumnFieldName='" + cbxValueType.EditValue.ToString() + "'"))
                     {
                         Series series = new Series(item["sColumnCaption"].ToString(), ViewType.Pie);
                         ((PiePointOptions)series.PointOptions).PointView = PointView.ArgumentAndValues;
                         ((PiePointOptions)series.PointOptions).PercentOptions.ValueAsPercent = false;
-                        series.ArgumentDataMember = cbxField.SelectedText;
+                        series.ArgumentDataMember = cbxField.EditValue.ToString();
                         series.ValueDataMembers[0] = item["sColumnFieldName"].ToString();
                         chtMain.Series.Add(series);
                     }
@@ -837,7 +837,7 @@ namespace BWS.ERP.Module.SystemManage
         /// </summary>
         private void ShowLine()
         {
-            if (cbxValueType.SelectedText != null && cbxValueType.SelectedText != "")
+            if (cbxValueType.Text != null && cbxValueType.Text != "")
             {
                 if (dtSearch != null && dtSearch.Rows.Count > 0)
                 {
@@ -849,10 +849,10 @@ namespace BWS.ERP.Module.SystemManage
                     //ChartTitle title = new ChartTitle();
                     //title.Text = dtMain.Rows[0]["ReportName"].ToString();
                     //chtMain.Titles.Add(title);
-                    foreach (DataRow item in dtDetail.Select("bChartValue"))
+                    foreach (DataRow item in dtDetail.Select("bChartValue AND sColumnFieldName='" + cbxValueType.EditValue.ToString() + "'"))
                     {
                         Series series = new Series(item["sColumnCaption"].ToString(), ViewType.Line);
-                        series.ArgumentDataMember = cbxField.SelectedText;
+                        series.ArgumentDataMember = cbxField.EditValue.ToString();
                         series.ValueDataMembers[0] = item["sColumnFieldName"].ToString();
                         chtMain.Series.Add(series);
                     }
@@ -874,7 +874,6 @@ namespace BWS.ERP.Module.SystemManage
 
 
         #region 属性设置
-        private string _reportno = "";
         /// <summary>
         /// 查询报表编号
         /// </summary>
@@ -882,14 +881,19 @@ namespace BWS.ERP.Module.SystemManage
         {
             get
             {
-                return _reportno;
-            }
-            set
-            {
-                _reportno = value;
+                return BWS.ERP.BasePublic.BasePublic.FormParaList(FormID)["ReportNo"].ToString();
             }
         }
         #endregion
+
+
+        private void tbDetail_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
+        {
+            if (tbDetail.SelectedTabPageIndex == 1)
+            {
+                ShowChart();
+            }
+        }
 
 
     }

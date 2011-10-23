@@ -28,6 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             this.gcMain = new BWS.ERP.Controls.BWSGridControl();
             this.gvMain = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colsReportNo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -351,6 +357,9 @@
             this.txtsDealFields.Name = "txtsDealFields";
             this.txtsDealFields.Size = new System.Drawing.Size(384, 21);
             this.txtsDealFields.StyleController = this.layoutControl1;
+            toolTipItem4.Text = "如果有分组时,应写入SUM等分组统计,例如SUM(fQuantity) AS fQuantity;非分组时,默认*表示所有字段";
+            superToolTip4.Items.Add(toolTipItem4);
+            this.txtsDealFields.SuperTip = superToolTip4;
             this.txtsDealFields.TabIndex = 16;
             // 
             // txtsExecSQL
@@ -361,6 +370,9 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtsExecSQL.Size = new System.Drawing.Size(158, 21);
             this.txtsExecSQL.StyleController = this.layoutControl1;
+            toolTipItem1.Text = "需要执行的SQL语句,支持通配符\r\n<字段名>:当前选择行中该列的值\r\n<UserID>:当前登录用户ID\r\n<GetDate>:当前系统时间";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.txtsExecSQL.SuperTip = superToolTip1;
             this.txtsExecSQL.TabIndex = 15;
             // 
             // txtsExecBtnText
@@ -411,6 +423,9 @@
             this.txtsReportSQL.Name = "txtsReportSQL";
             this.txtsReportSQL.Size = new System.Drawing.Size(384, 78);
             this.txtsReportSQL.StyleController = this.layoutControl1;
+            toolTipItem2.Text = "查询SQL,支持通配符\r\n<UserID>:当前登录用户ID\r\n<GetDate>:当前系统时间";
+            superToolTip2.Items.Add(toolTipItem2);
+            this.txtsReportSQL.SuperTip = superToolTip2;
             this.txtsReportSQL.TabIndex = 7;
             this.txtsReportSQL.Tag = "NoTab";
             // 
@@ -886,6 +901,8 @@
             this.colsDefaultValue.Caption = "查询默认值";
             this.colsDefaultValue.FieldName = "sDefaultValue";
             this.colsDefaultValue.Name = "colsDefaultValue";
+            this.colsDefaultValue.ToolTip = "支持通配符,<UserID>:当前登录用户ID;<GetDate>:当前系统时间,例如:<GetDate>-30,表示上个月,<GetDate>+30,表示下个月" +
+                "";
             this.colsDefaultValue.Visible = true;
             this.colsDefaultValue.VisibleIndex = 5;
             this.colsDefaultValue.Width = 87;
