@@ -22,6 +22,7 @@ namespace BWSERP
     public partial class frmMain : BWS.ERP.BaseForm.frmForm
     {
         Cursor currentCursor;
+        DataSet dsMeunData;
         public frmMain()
         {
             InitializeComponent();
@@ -30,6 +31,17 @@ namespace BWSERP
             barManager1.GetController().LookAndFeel.SkinName = "Blue";
 
             pnlWait.Location = new Point(pnlMenu.Width + 200, this.Height / 2);
+
+        }
+        public frmMain(DataSet ds)
+        {
+            InitializeComponent();
+            //窗体样式
+            barManager1.GetController().LookAndFeel.UseDefaultLookAndFeel = false;
+            barManager1.GetController().LookAndFeel.SkinName = "Blue";
+
+            pnlWait.Location = new Point(pnlMenu.Width + 200, this.Height / 2);
+            dsMeunData = ds;
 
         }
 
@@ -41,7 +53,7 @@ namespace BWSERP
 
             #region 菜单相关
             //初始化菜单
-            initMenu();
+            initMenu(dsMeunData);
             #endregion
 
             #region 底部状态栏显示
@@ -65,10 +77,10 @@ namespace BWSERP
             
         }
 
-        private void initMenu()
+        private void initMenu(DataSet ds)
         {
             //string MenuSql = "SELECT A.ID,A.iFormID,A.sMenuName,A.iParentID,A.sModuleName,A.sFormClassName FROM sysMenu A ORDER BY A.iSort";
-            DataSet dsMenu = BWS.ERP.DataAccess.DbHelperSQL.Query(BWS.ERP.Security.SecurityCenter.GetMenuAuthSQL());
+            DataSet dsMenu = ds;
             dsMenu.Tables[0].TableName = "ds";
             tvMenu.DataSource = dsMenu;
             tvMenu.DataMember = "ds";
@@ -460,7 +472,7 @@ namespace BWSERP
                     if (BWS.ERP.DataAccess.DbHelperSQL.ExecuteSql(sSql) > 0)
                     {
                         //自动创建完FormID后刷新菜单
-                        initMenu();
+                        initMenu(BWS.ERP.DataAccess.DbHelperSQL.Query(BWS.ERP.Security.SecurityCenter.GetMenuAuthSQL()));
                         return iResult;
                     }
                     else

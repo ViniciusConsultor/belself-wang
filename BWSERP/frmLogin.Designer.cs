@@ -40,6 +40,7 @@ namespace BWSERP
             this.btnSet = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
+            this.lblProgress = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserID.Properties)).BeginInit();
@@ -49,6 +50,7 @@ namespace BWSERP
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.lblProgress);
             this.panelControl1.Controls.Add(this.pictureEdit2);
             this.panelControl1.Controls.Add(this.btnCancel);
             this.panelControl1.Controls.Add(this.btnSet);
@@ -67,7 +69,7 @@ namespace BWSERP
             this.btnLogin.Location = new System.Drawing.Point(242, 172);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(58, 23);
-            this.btnLogin.TabIndex = 0;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "登录";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -115,7 +117,7 @@ namespace BWSERP
             this.txtUserID.Location = new System.Drawing.Point(271, 79);
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.Size = new System.Drawing.Size(169, 21);
-            this.txtUserID.TabIndex = 2;
+            this.txtUserID.TabIndex = 1;
             // 
             // txtPassword
             // 
@@ -124,7 +126,7 @@ namespace BWSERP
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(169, 21);
-            this.txtPassword.TabIndex = 3;
+            this.txtPassword.TabIndex = 2;
             // 
             // labelControl1
             // 
@@ -163,7 +165,7 @@ namespace BWSERP
             this.btnSet.Location = new System.Drawing.Point(389, 172);
             this.btnSet.Name = "btnSet";
             this.btnSet.Size = new System.Drawing.Size(58, 23);
-            this.btnSet.TabIndex = 9;
+            this.btnSet.TabIndex = 5;
             this.btnSet.Text = "设置";
             this.btnSet.ToolTip = "设置数据库连接";
             this.btnSet.Click += new System.EventHandler(this.btnSet_Click);
@@ -176,7 +178,7 @@ namespace BWSERP
             this.btnCancel.Location = new System.Drawing.Point(316, 172);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(58, 23);
-            this.btnCancel.TabIndex = 10;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "取消";
             // 
             // pictureEdit2
@@ -190,6 +192,17 @@ namespace BWSERP
             this.pictureEdit2.Properties.ShowMenu = false;
             this.pictureEdit2.Size = new System.Drawing.Size(183, 268);
             this.pictureEdit2.TabIndex = 11;
+            // 
+            // lblProgress
+            // 
+            this.lblProgress.Appearance.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblProgress.Appearance.Options.UseForeColor = true;
+            this.lblProgress.Location = new System.Drawing.Point(325, 226);
+            this.lblProgress.Name = "lblProgress";
+            this.lblProgress.Size = new System.Drawing.Size(148, 14);
+            this.lblProgress.TabIndex = 12;
+            this.lblProgress.Text = "正在加载权限数据,请稍候...";
+            this.lblProgress.Visible = false;
             // 
             // frmLogin
             // 
@@ -231,6 +244,7 @@ namespace BWSERP
         private System.Windows.Forms.ImageList imageList1;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.PictureEdit pictureEdit2;
+        private DevExpress.XtraEditors.LabelControl lblProgress;
 
 
     }
