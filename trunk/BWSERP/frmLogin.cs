@@ -54,8 +54,11 @@ namespace BWSERP
                 if (iLoginResult == 1)
                 {
                     BWS.ERP.BaseControl.ConnectSetting.SaveAppConfig("LastUserID", txtUserID.Text, true);
+                    lblProgress.Visible = true;
+                    this.Refresh();
+                    DataSet ds = BWS.ERP.DataAccess.DbHelperSQL.Query(BWS.ERP.Security.SecurityCenter.GetMenuAuthSQL());
+                    frmMain frm = new frmMain(ds);
                     this.Hide();
-                    frmMain frm = new frmMain();
                     //frm.CurrentUser = txtUserID.Text;
                     //frm.CurrentDeptName = "系统管理员";
                     frm.ShowDialog();
@@ -83,6 +86,11 @@ namespace BWSERP
             try
             {
                 txtUserID.Text = BWS.ERP.BaseControl.ConnectSetting.GetAppConfig("LastUserID", true);
+                if (!string.IsNullOrEmpty(txtUserID.Text))
+                {
+                    //设置为输入焦点
+                    txtPassword.TabIndex = 0;
+                }
             }
             catch
             {
