@@ -3,3 +3,8 @@ E:\MyFiles\BWSERP\BWS.ERP.SysBase\bin\Debug\BWS.ERP.SysBase.pdb
 E:\MyFiles\BWSERP\BWS.ERP.SysBase\obj\Debug\ResolveAssemblyReference.cache
 E:\MyFiles\BWSERP\BWS.ERP.SysBase\obj\Debug\BWS.ERP.SysBase.dll
 E:\MyFiles\BWSERP\BWS.ERP.SysBase\obj\Debug\BWS.ERP.SysBase.pdb
+E:\MyProject\belself-wang\BWS.ERP.SysBase\bin\Debug\BWS.ERP.SysBase.dll
+E:\MyProject\belself-wang\BWS.ERP.SysBase\bin\Debug\BWS.ERP.SysBase.pdb
+E:\MyProject\belself-wang\BWS.ERP.SysBase\obj\Debug\ResolveAssemblyReference.cache
+E:\MyProject\belself-wang\BWS.ERP.SysBase\obj\Debug\BWS.ERP.SysBase.dll
+E:\MyProject\belself-wang\BWS.ERP.SysBase\obj\Debug\BWS.ERP.SysBase.pdb
