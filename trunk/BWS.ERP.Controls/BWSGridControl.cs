@@ -51,14 +51,14 @@ namespace BWS.ERP.Controls
                     menu.Items.Add(dx5);
                     DXMenuItem dx6 = new DXMenuItem(sMenuCaption2, ShowGroupFooter);
                     menu.Items.Add(dx6);
-                    DXMenuItem dx1 = new DXMenuItem("保存为Excel文件", SaveAsExcel);
+                    DXMenuItem dx1 = new DXMenuItem("保存为Excel文件", SaveAsExcel, BWS.ERP.Controls.Properties.Resources.excel.ToBitmap());
                     dx1.BeginGroup = true;
                     menu.Items.Add(dx1);
-                    DXMenuItem dx2 = new DXMenuItem("保存为Word文件", SaveAsWord);
+                    DXMenuItem dx2 = new DXMenuItem("保存为Word文件", SaveAsWord, BWS.ERP.Controls.Properties.Resources.word.ToBitmap());
                     menu.Items.Add(dx2);
                     DXMenuItem dx3 = new DXMenuItem("保存为Html文件", SaveAsHtml);
                     menu.Items.Add(dx3);
-                    DXMenuItem dx4 = new DXMenuItem("保存为Pdf文件", SaveAsPdf);
+                    DXMenuItem dx4 = new DXMenuItem("保存为Pdf文件", SaveAsPdf, BWS.ERP.Controls.Properties.Resources.pdf.ToBitmap());
                     menu.Items.Add(dx4);
                 }
             }
