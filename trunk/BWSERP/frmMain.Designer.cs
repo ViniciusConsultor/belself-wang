@@ -29,30 +29,30 @@ namespace BWSERP
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SuperToolTip superToolTip13 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem13 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip14 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem14 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip15 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem15 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip16 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem16 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip17 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem17 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip18 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem18 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip24 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem24 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip19 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem19 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip20 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem20 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip22 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem22 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip23 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem23 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip21 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem21 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip10 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem10 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip11 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem11 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip12 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem12 = new DevExpress.Utils.ToolTipItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
@@ -125,8 +125,6 @@ namespace BWSERP
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.pnlWait = new DevExpress.XtraEditors.PanelControl();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.picBack = new DevExpress.XtraEditors.PictureEdit();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -139,8 +137,6 @@ namespace BWSERP
             this.tbAllWork.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tvMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlWait)).BeginInit();
-            this.pnlWait.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBack.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -460,6 +456,7 @@ namespace BWSERP
             this.bar2.OptionsBar.DrawDragBorder = false;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Status bar";
+            this.bar2.Visible = false;
             // 
             // barServerName
             // 
@@ -494,7 +491,7 @@ namespace BWSERP
             // barSoftVer
             // 
             this.barSoftVer.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barSoftVer.Caption = "软件版本:2.0.0.0";
+            this.barSoftVer.Caption = "软件版本:10.0.0.0";
             this.barSoftVer.Id = 28;
             this.barSoftVer.Name = "barSoftVer";
             // 
@@ -525,6 +522,7 @@ namespace BWSERP
             this.bar3.OptionsBar.RotateWhenVertical = false;
             this.bar3.OptionsBar.UseWholeRow = true;
             this.bar3.Text = "Custom 3";
+            this.bar3.Visible = false;
             // 
             // barStaticItem8
             // 
@@ -539,9 +537,9 @@ namespace BWSERP
             this.toolRelogin.Id = 51;
             this.toolRelogin.ImageIndex = 21;
             this.toolRelogin.Name = "toolRelogin";
-            toolTipItem13.Text = "重新登录";
-            superToolTip13.Items.Add(toolTipItem13);
-            this.toolRelogin.SuperTip = superToolTip13;
+            toolTipItem1.Text = "重新登录";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.toolRelogin.SuperTip = superToolTip1;
             this.toolRelogin.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.toolRelogin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barRelogin_ItemClick);
             // 
@@ -551,9 +549,9 @@ namespace BWSERP
             this.toolModifyPassword.Id = 52;
             this.toolModifyPassword.ImageIndex = 27;
             this.toolModifyPassword.Name = "toolModifyPassword";
-            toolTipItem14.Text = "修改密码";
-            superToolTip14.Items.Add(toolTipItem14);
-            this.toolModifyPassword.SuperTip = superToolTip14;
+            toolTipItem2.Text = "修改密码";
+            superToolTip2.Items.Add(toolTipItem2);
+            this.toolModifyPassword.SuperTip = superToolTip2;
             this.toolModifyPassword.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barModifyPassword_ItemClick);
             // 
             // toolReLink
@@ -562,9 +560,9 @@ namespace BWSERP
             this.toolReLink.Id = 53;
             this.toolReLink.ImageIndex = 25;
             this.toolReLink.Name = "toolReLink";
-            toolTipItem15.Text = "重新连接";
-            superToolTip15.Items.Add(toolTipItem15);
-            this.toolReLink.SuperTip = superToolTip15;
+            toolTipItem3.Text = "重新连接";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.toolReLink.SuperTip = superToolTip3;
             this.toolReLink.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barReLink_ItemClick);
             // 
             // toolDataBaseLinkSet
@@ -573,9 +571,9 @@ namespace BWSERP
             this.toolDataBaseLinkSet.Id = 54;
             this.toolDataBaseLinkSet.ImageIndex = 26;
             this.toolDataBaseLinkSet.Name = "toolDataBaseLinkSet";
-            toolTipItem16.Text = "数据库连接设置";
-            superToolTip16.Items.Add(toolTipItem16);
-            this.toolDataBaseLinkSet.SuperTip = superToolTip16;
+            toolTipItem4.Text = "数据库连接设置";
+            superToolTip4.Items.Add(toolTipItem4);
+            this.toolDataBaseLinkSet.SuperTip = superToolTip4;
             this.toolDataBaseLinkSet.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barDataBaseLinkSet_ItemClick);
             // 
             // toolCalc
@@ -584,9 +582,9 @@ namespace BWSERP
             this.toolCalc.Id = 55;
             this.toolCalc.ImageIndex = 24;
             this.toolCalc.Name = "toolCalc";
-            toolTipItem17.Text = "计算器";
-            superToolTip17.Items.Add(toolTipItem17);
-            this.toolCalc.SuperTip = superToolTip17;
+            toolTipItem5.Text = "计算器";
+            superToolTip5.Items.Add(toolTipItem5);
+            this.toolCalc.SuperTip = superToolTip5;
             this.toolCalc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCalc_ItemClick);
             // 
             // toolShortMessage
@@ -595,9 +593,9 @@ namespace BWSERP
             this.toolShortMessage.Id = 56;
             this.toolShortMessage.ImageIndex = 29;
             this.toolShortMessage.Name = "toolShortMessage";
-            toolTipItem18.Text = "短消息";
-            superToolTip18.Items.Add(toolTipItem18);
-            this.toolShortMessage.SuperTip = superToolTip18;
+            toolTipItem6.Text = "短消息";
+            superToolTip6.Items.Add(toolTipItem6);
+            this.toolShortMessage.SuperTip = superToolTip6;
             // 
             // toolPicBack
             // 
@@ -605,9 +603,9 @@ namespace BWSERP
             this.toolPicBack.Id = 71;
             this.toolPicBack.ImageIndex = 13;
             this.toolPicBack.Name = "toolPicBack";
-            toolTipItem24.Text = "更换桌面背景图片";
-            superToolTip24.Items.Add(toolTipItem24);
-            this.toolPicBack.SuperTip = superToolTip24;
+            toolTipItem7.Text = "更换桌面背景图片";
+            superToolTip7.Items.Add(toolTipItem7);
+            this.toolPicBack.SuperTip = superToolTip7;
             this.toolPicBack.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barPicBack_ItemClick);
             // 
             // tooTreeMenu
@@ -625,9 +623,9 @@ namespace BWSERP
             this.toolCloseCurrent.Id = 62;
             this.toolCloseCurrent.ImageIndex = 37;
             this.toolCloseCurrent.Name = "toolCloseCurrent";
-            toolTipItem19.Text = "关闭当前窗口";
-            superToolTip19.Items.Add(toolTipItem19);
-            this.toolCloseCurrent.SuperTip = superToolTip19;
+            toolTipItem8.Text = "关闭当前窗口";
+            superToolTip8.Items.Add(toolTipItem8);
+            this.toolCloseCurrent.SuperTip = superToolTip8;
             this.toolCloseCurrent.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.toolCloseCurrent_ItemClick);
             // 
             // toolCloseAll
@@ -636,9 +634,9 @@ namespace BWSERP
             this.toolCloseAll.Id = 63;
             this.toolCloseAll.ImageIndex = 35;
             this.toolCloseAll.Name = "toolCloseAll";
-            toolTipItem20.Text = "关闭所有窗口";
-            superToolTip20.Items.Add(toolTipItem20);
-            this.toolCloseAll.SuperTip = superToolTip20;
+            toolTipItem9.Text = "关闭所有窗口";
+            superToolTip9.Items.Add(toolTipItem9);
+            this.toolCloseAll.SuperTip = superToolTip9;
             this.toolCloseAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.toolCloseAll_ItemClick);
             // 
             // toolHelp
@@ -647,9 +645,9 @@ namespace BWSERP
             this.toolHelp.Id = 65;
             this.toolHelp.ImageIndex = 20;
             this.toolHelp.Name = "toolHelp";
-            toolTipItem22.Text = "帮助";
-            superToolTip22.Items.Add(toolTipItem22);
-            this.toolHelp.SuperTip = superToolTip22;
+            toolTipItem10.Text = "帮助";
+            superToolTip10.Items.Add(toolTipItem10);
+            this.toolHelp.SuperTip = superToolTip10;
             // 
             // toolAbout
             // 
@@ -657,9 +655,9 @@ namespace BWSERP
             this.toolAbout.Id = 69;
             this.toolAbout.ImageIndex = 46;
             this.toolAbout.Name = "toolAbout";
-            toolTipItem23.Text = "关于";
-            superToolTip23.Items.Add(toolTipItem23);
-            this.toolAbout.SuperTip = superToolTip23;
+            toolTipItem11.Text = "关于";
+            superToolTip11.Items.Add(toolTipItem11);
+            this.toolAbout.SuperTip = superToolTip11;
             this.toolAbout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barAbout_ItemClick);
             // 
             // toolExit
@@ -668,9 +666,9 @@ namespace BWSERP
             this.toolExit.Id = 64;
             this.toolExit.ImageIndex = 19;
             this.toolExit.Name = "toolExit";
-            toolTipItem21.Text = "退出系统";
-            superToolTip21.Items.Add(toolTipItem21);
-            this.toolExit.SuperTip = superToolTip21;
+            toolTipItem12.Text = "退出系统";
+            superToolTip12.Items.Add(toolTipItem12);
+            this.toolExit.SuperTip = superToolTip12;
             this.toolExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barExit_ItemClick);
             // 
             // imageList1
@@ -810,6 +808,7 @@ namespace BWSERP
             this.splitterControl1.Size = new System.Drawing.Size(6, 413);
             this.splitterControl1.TabIndex = 8;
             this.splitterControl1.TabStop = false;
+            this.splitterControl1.Visible = false;
             // 
             // pnlMenu
             // 
@@ -860,6 +859,7 @@ namespace BWSERP
             this.tvMenu.StateImageList = this.imageList2;
             this.tvMenu.TabIndex = 0;
             this.tvMenu.TreeLineStyle = DevExpress.XtraTreeList.LineStyle.None;
+            this.tvMenu.Visible = false;
             this.tvMenu.GetStateImage += new DevExpress.XtraTreeList.GetStateImageEventHandler(this.tvMenu_GetStateImage);
             this.tvMenu.DoubleClick += new System.EventHandler(this.tvMenu_DoubleClick);
             // 
@@ -877,43 +877,19 @@ namespace BWSERP
             // 
             // pnlWait
             // 
-            this.pnlWait.Controls.Add(this.pictureEdit1);
-            this.pnlWait.Controls.Add(this.labelControl1);
+            this.pnlWait.ContentImage = global::BWSERP.Properties.Resources.等待时的图片;
             this.pnlWait.Location = new System.Drawing.Point(287, 231);
             this.pnlWait.LookAndFeel.SkinName = "Blue";
             this.pnlWait.LookAndFeel.UseDefaultLookAndFeel = false;
             this.pnlWait.Name = "pnlWait";
-            this.pnlWait.Size = new System.Drawing.Size(290, 84);
+            this.pnlWait.Size = new System.Drawing.Size(380, 140);
             this.pnlWait.TabIndex = 9;
             this.pnlWait.Visible = false;
-            // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.EditValue = global::BWSERP.Properties.Resources.load;
-            this.pictureEdit1.Location = new System.Drawing.Point(60, 26);
-            this.pictureEdit1.MenuManager = this.barManager1;
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.AllowFocused = false;
-            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit1.Properties.ReadOnly = true;
-            this.pictureEdit1.Properties.ShowMenu = false;
-            this.pictureEdit1.Size = new System.Drawing.Size(31, 36);
-            this.pictureEdit1.TabIndex = 1;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(97, 36);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(124, 14);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "正在加载数据,请稍后...";
             // 
             // picBack
             // 
             this.picBack.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picBack.EditValue = global::BWSERP.Properties.Resources.main;
+            this.picBack.EditValue = global::BWSERP.Properties.Resources.系统背景图原图;
             this.picBack.Location = new System.Drawing.Point(213, 58);
             this.picBack.MenuManager = this.barManager1;
             this.picBack.Name = "picBack";
@@ -941,7 +917,7 @@ namespace BWSERP
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "frmMain";
             this.ShowInTaskbar = true;
-            this.Text = "BWS ERP System Platform";
+            this.Text = "日正企业管理系统";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
@@ -964,9 +940,6 @@ namespace BWSERP
             this.tbAllWork.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tvMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlWait)).EndInit();
-            this.pnlWait.ResumeLayout(false);
-            this.pnlWait.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBack.Properties)).EndInit();
             this.ResumeLayout(false);
 
@@ -1041,8 +1014,6 @@ namespace BWSERP
         private DevExpress.XtraBars.BarCheckItem barTreeMenu;
         private DevExpress.XtraBars.BarCheckItem tooTreeMenu;
         private DevExpress.XtraEditors.PanelControl pnlWait;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraBars.BarButtonItem toolAbout;
         private DevExpress.XtraEditors.PictureEdit picBack;
         private DevExpress.XtraBars.BarButtonItem barPicBack;
