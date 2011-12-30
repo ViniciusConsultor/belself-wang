@@ -17,6 +17,7 @@ namespace BWSERP
         public frmSysInit()
         {
             InitializeComponent();
+            new Chinese();
         }
 
         private void frmSysInit_Load(object sender, EventArgs e)
@@ -28,7 +29,8 @@ namespace BWSERP
         {
             if (CheckConn()) { return; }
             this.Hide();
-            frmLogin frm = new frmLogin();
+            //frmLogin frm = new frmLogin();
+            frmMain frm = new frmMain();
             frm.ShowDialog();
             this.Close();
         }

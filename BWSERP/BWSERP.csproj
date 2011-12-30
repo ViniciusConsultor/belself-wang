@@ -12,7 +12,7 @@
     <AssemblyName>ERP</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ApplicationIcon>logo32x32.ico</ApplicationIcon>
+    <ApplicationIcon>icon_car.ico</ApplicationIcon>
     <StartupObject>BWSERP.Program</StartupObject>
     <ManifestCertificateThumbprint>2E560E14575F5643870C8E9A2F1222B897B772F8</ManifestCertificateThumbprint>
     <ManifestKeyFile>BWSERP_TemporaryKey.pfx</ManifestKeyFile>
@@ -55,6 +55,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BWS.ERP.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="BWS.ERP.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="BWS.ERP.Report, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.BonusSkins.v9.3, Version=9.3.3.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\DevExpress.BonusSkins.v9.3.dll</HintPath>
@@ -103,6 +106,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\DevExpress.XtraVerticalGrid.v9.3.dll</HintPath>
     </Reference>
+    <Reference Include="FastReport, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="FastReport.Bars, Version=1.2.47.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL" />
+    <Reference Include="FastReport.Editor, Version=1.2.47.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core">
@@ -239,17 +245,9 @@
       <Project>{B063E5F9-4E6C-4CCE-90D9-97094DBEFD3C}</Project>
       <Name>BWS.ERP.Controls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BWS.ERP.DAL\BWS.ERP.DAL.csproj">
-      <Project>{F028F118-99CF-4C4D-90E0-8E81B05CE346}</Project>
-      <Name>BWS.ERP.DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BWS.ERP.DataAccess\BWS.ERP.DataAccess.csproj">
       <Project>{E30BB9FB-447C-4260-8ACB-0604DD729BFE}</Project>
       <Name>BWS.ERP.DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BWS.ERP.Report\BWS.ERP.Report.csproj">
-      <Project>{5049D72C-A87F-4874-9EA8-4D590055D202}</Project>
-      <Name>BWS.ERP.Report</Name>
     </ProjectReference>
     <ProjectReference Include="..\BWS.ERP.Security\BWS.ERP.Security.csproj">
       <Project>{3C5E617E-BC81-49C7-AC43-93DFFEBF74F3}</Project>
@@ -288,9 +286,14 @@
     <None Include="Resources\add.bmp" />
     <None Include="Resources\erptop.gif" />
     <None Include="Resources\erptop.jpg" />
+    <Content Include="icon_car.ico" />
     <Content Include="logo32x32.ico" />
     <None Include="Resources\logo32x32.ico.ico" />
     <Content Include="Resources\logo64x64.ico" />
+    <None Include="Resources\形象图.bmp" />
+    <None Include="Resources\等待时的图片.bmp" />
+    <None Include="Resources\系统背景图原图.bmp" />
+    <None Include="Resources\系统初始化.bmp" />
     <None Include="Resources\main.jpg" />
     <None Include="Resources\load.gif" />
     <None Include="Resources\unok.bmp" />

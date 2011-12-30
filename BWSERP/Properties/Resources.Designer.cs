@@ -199,5 +199,33 @@ namespace BWSERP.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap 形象图 {
+            get {
+                object obj = ResourceManager.GetObject("形象图", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap 等待时的图片 {
+            get {
+                object obj = ResourceManager.GetObject("等待时的图片", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap 系统初始化 {
+            get {
+                object obj = ResourceManager.GetObject("系统初始化", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap 系统背景图原图 {
+            get {
+                object obj = ResourceManager.GetObject("系统背景图原图", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

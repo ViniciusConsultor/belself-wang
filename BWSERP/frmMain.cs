@@ -23,6 +23,7 @@ namespace BWSERP
     {
         Cursor currentCursor;
         DataSet dsMeunData;
+        bool firstExit = false;
         public frmMain()
         {
             InitializeComponent();
@@ -47,23 +48,38 @@ namespace BWSERP
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            if (dsMeunData != null)
+            {
+                //当前用户
+                //BWS.ERP.Security.SecurityCenter.CurrentUserID = "admin";
 
-            //当前用户
-            //BWS.ERP.Security.SecurityCenter.CurrentUserID = "admin";
+                #region 菜单相关
+                //初始化菜单
+                initMenu(dsMeunData);
+                #endregion
 
-            #region 菜单相关
-            //初始化菜单
-            initMenu(dsMeunData);
-            #endregion
+                #region 底部状态栏显示
 
-            #region 底部状态栏显示
-
-            //底部状态栏显示
-            barServerName.Caption = "服务器:" + BWS.ERP.BaseControl.ConnectSetting.GetAppConfig("ServerName",true);
-            barDataBase.Caption = "数据库:" + BWS.ERP.BaseControl.ConnectSetting.GetAppConfig("DataBase", true);
-            barDate.Caption = "日期:" + DateTime.Now.Date.ToString("yyyy年MM月dd") + " " + BWS.ERP.BasePublic.SysPublic.ChsWeek(DateTime.Now.Date) + " 农历:" + BWS.ERP.BasePublic.SysPublic.CNDate();
-            barUserName.Caption = "用户:" + BWS.ERP.Security.SecurityCenter.CurrentUserName;
-            barDeptName.Caption = "所属部门:" + BWS.ERP.Security.SecurityCenter.CurrentDeptName;
+                //底部状态栏显示
+                barServerName.Caption = "服务器:" + BWS.ERP.BaseControl.ConnectSetting.GetAppConfig("ServerName", true);
+                barDataBase.Caption = "数据库:" + BWS.ERP.BaseControl.ConnectSetting.GetAppConfig("DataBase", true);
+                barDate.Caption = "日期:" + DateTime.Now.Date.ToString("yyyy年MM月dd") + " " + BWS.ERP.BasePublic.SysPublic.ChsWeek(DateTime.Now.Date) + " 农历:" + BWS.ERP.BasePublic.SysPublic.CNDate();
+                barUserName.Caption = "用户:" + BWS.ERP.Security.SecurityCenter.CurrentUserName;
+                barDeptName.Caption = "所属部门:" + BWS.ERP.Security.SecurityCenter.CurrentDeptName;
+            }
+            else
+            {
+                pnlMenu.Width = 0;
+                frmLogin frm = new frmLogin();
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    firstExit = true;
+                }
+                else
+                {
+                    this.Close();
+                }
+            }
 
             //桌面背景
             if (System.IO.File.Exists(BWS.ERP.BaseControl.ConnectSetting.GetAppConfig("BackImg", false)))
@@ -328,8 +344,7 @@ namespace BWSERP
                     Cursor = Cursors.Default;
                     try
                     {
-                        Form frmobject = (Form)Assembly.LoadFile(sPath).CreateInstance(sClassName, false, BindingFlags.CreateInstance, null, new object[] { GetFormID(Convert.ToInt32(tvMenu.FocusedNode.GetValue("ID"))), tvMenu.FocusedNode.GetValue("sMenuName") }, null, null);
-                        //Form formobj = (Form)Assembly.LoadFile(Application.StartupPath + @"\DECOERP.exe").CreateInstance("DECOERP.frmSysGridColumnSet", false, BindingFlags.CreateInstance, null, new object[] { GetFormID(Convert.ToInt32(tvMemu.FocusedNode.GetValue("ID"))), tvMemu.FocusedNode.GetValue("grname") }, null, null);
+                        Form frmobject = (Form)Assembly.LoadFile(sPath).CreateInstance(sClassName, true, BindingFlags.CreateInstance, null, new object[] { GetFormID(Convert.ToInt32(tvMenu.FocusedNode.GetValue("ID"))), tvMenu.FocusedNode.GetValue("sMenuName") }, null, null);
                         frmobject.MdiParent = this;
                         frmobject.Show();
                         picBack.Visible = false;
@@ -377,19 +392,26 @@ namespace BWSERP
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            if (BWS.ERP.BaseControl.Public.SystemInfo("是否退出系统？", 4) == DialogResult.Yes)
+            if (!firstExit)
             {
-                if (e.CloseReason == CloseReason.MdiFormClosing)
-                {
-                    base.OnFormClosing(e);
-                    //释放所有UI线程
-                    Application.Exit();
-                    return;
-                }
+                base.OnFormClosing(e);
             }
             else
             {
-                e.Cancel = true;
+                if (BWS.ERP.BaseControl.Public.SystemInfo("是否退出系统？", 4) == DialogResult.Yes)
+                {
+                    if (e.CloseReason == CloseReason.MdiFormClosing)
+                    {
+                        base.OnFormClosing(e);
+                        //释放所有UI线程
+                        Application.Exit();
+                        return;
+                    }
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
             }
         }
 

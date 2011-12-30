@@ -36,37 +36,35 @@ namespace BWSERP
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.btnSet = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
             this.lblProgress = new DevExpress.XtraEditors.LabelControl();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.lblProgress);
-            this.panelControl1.Controls.Add(this.pictureEdit2);
-            this.panelControl1.Controls.Add(this.btnCancel);
-            this.panelControl1.Controls.Add(this.btnSet);
-            this.panelControl1.Controls.Add(this.labelControl3);
-            this.panelControl1.Controls.Add(this.labelControl2);
             this.panelControl1.Controls.Add(this.labelControl1);
-            this.panelControl1.Controls.Add(this.txtPassword);
             this.panelControl1.Controls.Add(this.txtUserID);
+            this.panelControl1.Controls.Add(this.btnSet);
+            this.panelControl1.Controls.Add(this.labelControl2);
+            this.panelControl1.Controls.Add(this.btnCancel);
+            this.panelControl1.Controls.Add(this.txtPassword);
             this.panelControl1.Controls.Add(this.btnLogin);
-            this.panelControl1.Size = new System.Drawing.Size(487, 272);
+            this.panelControl1.Location = new System.Drawing.Point(0, 50);
+            this.panelControl1.Size = new System.Drawing.Size(477, 222);
             // 
             // btnLogin
             // 
             this.btnLogin.ImageIndex = 21;
             this.btnLogin.ImageList = this.imageList1;
-            this.btnLogin.Location = new System.Drawing.Point(242, 172);
+            this.btnLogin.Location = new System.Drawing.Point(121, 115);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(58, 23);
             this.btnLogin.TabIndex = 3;
@@ -114,7 +112,7 @@ namespace BWSERP
             // 
             // txtUserID
             // 
-            this.txtUserID.Location = new System.Drawing.Point(271, 79);
+            this.txtUserID.Location = new System.Drawing.Point(179, 44);
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.Size = new System.Drawing.Size(169, 21);
             this.txtUserID.TabIndex = 1;
@@ -122,7 +120,7 @@ namespace BWSERP
             // txtPassword
             // 
             this.txtPassword.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtPassword.Location = new System.Drawing.Point(271, 119);
+            this.txtPassword.Location = new System.Drawing.Point(178, 77);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(169, 21);
@@ -132,7 +130,7 @@ namespace BWSERP
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(217, 82);
+            this.labelControl1.Location = new System.Drawing.Point(121, 47);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(52, 14);
             this.labelControl1.TabIndex = 4;
@@ -142,27 +140,17 @@ namespace BWSERP
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(217, 122);
+            this.labelControl2.Location = new System.Drawing.Point(121, 80);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(51, 14);
             this.labelControl2.TabIndex = 5;
             this.labelControl2.Text = "密   码：";
             // 
-            // labelControl3
-            // 
-            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.labelControl3.Appearance.Options.UseForeColor = true;
-            this.labelControl3.Location = new System.Drawing.Point(256, 246);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(219, 14);
-            this.labelControl3.TabIndex = 7;
-            this.labelControl3.Text = "Powered By Belself Working Studio.NET";
-            // 
             // btnSet
             // 
             this.btnSet.ImageIndex = 26;
             this.btnSet.ImageList = this.imageList1;
-            this.btnSet.Location = new System.Drawing.Point(389, 172);
+            this.btnSet.Location = new System.Drawing.Point(289, 115);
             this.btnSet.Name = "btnSet";
             this.btnSet.Size = new System.Drawing.Size(58, 23);
             this.btnSet.TabIndex = 5;
@@ -175,34 +163,32 @@ namespace BWSERP
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.ImageIndex = 33;
             this.btnCancel.ImageList = this.imageList1;
-            this.btnCancel.Location = new System.Drawing.Point(316, 172);
+            this.btnCancel.Location = new System.Drawing.Point(205, 115);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(58, 23);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "取消";
             // 
-            // pictureEdit2
-            // 
-            this.pictureEdit2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureEdit2.EditValue = global::BWSERP.Properties.Resources.login_img;
-            this.pictureEdit2.Location = new System.Drawing.Point(2, 2);
-            this.pictureEdit2.Name = "pictureEdit2";
-            this.pictureEdit2.Properties.AllowFocused = false;
-            this.pictureEdit2.Properties.ReadOnly = true;
-            this.pictureEdit2.Properties.ShowMenu = false;
-            this.pictureEdit2.Size = new System.Drawing.Size(183, 268);
-            this.pictureEdit2.TabIndex = 11;
-            // 
             // lblProgress
             // 
             this.lblProgress.Appearance.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblProgress.Appearance.Options.UseForeColor = true;
-            this.lblProgress.Location = new System.Drawing.Point(325, 226);
+            this.lblProgress.Location = new System.Drawing.Point(317, 196);
             this.lblProgress.Name = "lblProgress";
             this.lblProgress.Size = new System.Drawing.Size(148, 14);
             this.lblProgress.TabIndex = 12;
             this.lblProgress.Text = "正在加载权限数据,请稍候...";
             this.lblProgress.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::BWSERP.Properties.Resources.形象图;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(477, 50);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // frmLogin
             // 
@@ -210,24 +196,28 @@ namespace BWSERP
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(487, 272);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.ClientSize = new System.Drawing.Size(477, 272);
+            this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.LookAndFeel.SkinName = "Blue";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmLogin";
-            this.ShowInTaskbar = true;
+            this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BWSERP";
+            this.Text = "SUNRISE ERP 10.0";
             this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.Controls.SetChildIndex(this.pictureBox1, 0);
+            this.Controls.SetChildIndex(this.panelControl1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -239,12 +229,11 @@ namespace BWSERP
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit txtPassword;
         private DevExpress.XtraEditors.TextEdit txtUserID;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.SimpleButton btnSet;
         private System.Windows.Forms.ImageList imageList1;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit2;
         private DevExpress.XtraEditors.LabelControl lblProgress;
+        private System.Windows.Forms.PictureBox pictureBox1;
 
 
     }
